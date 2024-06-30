@@ -1,0 +1,37 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.Random;
+
+public class BubbleSort {
+  public static void main(String[] args) {
+
+    Random rand = new Random();
+    int[] array_obj = new int[5];
+    
+    for (int i = 0; i < array_obj.length; i++) {
+      array_obj[i] = rand.nextInt(99);
+    }
+    System.out.println("Initial values");
+    arrayPrint(array_obj);
+    insertion_sort(array_obj);
+    System.out.println("Final sorted values");
+    arrayPrint(array_obj);
+  }
+  public static void insertion_sort(int[] Array){
+      for(int i=1;i<Array.length;i++){
+          int initial_val=Array[i];
+          int j=i-1;
+          while(j>=0 && initial_val<Array[j]){
+              Array[j+1]=Array[j];
+              j--;
+          }
+          Array[j+1]=initial_val;
+      }
+  }
+  private static void arrayPrint(int[] Array) {
+    for (int i = 0; i < Array.length; i++) {
+      System.out.println("["+(i+1)+"]"+" "+Array[i]);
+    }
+  }
+}
